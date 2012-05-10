@@ -1,0 +1,36 @@
+<body>
+<script src=../mochup.js></script>
+<script src=test.js></script>
+<script>
+
+
+function assert(title){
+  function t(name, pass){
+    setTimeout(function(){
+    var d = document.createElement("div");
+    d.className = pass ? "pass" : "fail";
+    
+    d.innerHTML = (pass ? "&check;" : "&times;") + " " + title + ": " + name;
+    
+    document.body.appendChild(d)
+    }, 1);
+  }
+  
+  return t;
+}
+
+var start = +new Date
+for(var x in mochup_tests){
+  mochup_tests[x](assert(x))
+}
+
+var time = +new Date - start;
+
+var d = document.createElement("div");
+d.innerHTML = "tests completed in " + time + "ms";
+document.body.appendChild(d);
+</script>
+<style>
+  .pass{color:green}
+  .fail{color:red}
+</style>
