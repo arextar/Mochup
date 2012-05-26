@@ -1,6 +1,6 @@
 # Model
 
-### constructor
+### Constructor
 The `mochup.Model` constructor optionally accepts an object to set the initial data.
 
 ````js
@@ -38,8 +38,8 @@ model.get('name') //=> 'John Doe'
 ## Methods
 
 
-### Model#set
-`Model#set` takes a key (type string) and a value (any type) as arguments and sets the value given to the given key, triggering any listeners bound to that key. It can also define getters as defined under the previous header
+### Model#set(key:String, value [, dependencies:String...])
+`Model#set` sets the value given to the given key, triggering any listeners bound to that key. It can also define getters (as defined under the previous header).
 
 ````js
 var model = new mochup.Model()
@@ -50,8 +50,8 @@ model.get('foo') //=> 'bar'
 ````
 
 
-### Model#get
-`Model#get` takes a key as an argument and returns the value associated with it, calling a getter if needed
+### Model#get(key:String)
+`Model#get` returns the value associated with the given key, calling a getter if needed.
 
 ````js
 var model = new mochup.Model({foo: 'bar'})
