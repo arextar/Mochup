@@ -2,19 +2,19 @@
 Mochup renders view written in HTML and its own templating language.
 
 ## Basic model rendering
-Use `{{name}}` to interpolate a value in a template.
+Use `{{name}}` to interpolate a value in a template. This value can be in an text block within an element or in an attribute.
 
 ````js
 var model = new mochup.Model({name: "Joe", age: 32}),
     dummy_element = document.createElement("div")
 
-model.render("<b>{{name}}</b> is {{age}} years old!", dummy_element)
+model.render("<div class="age{{age}}"><b>{{name}}</b> is {{age}} years old!</div>", dummy_element)
 
-dummy_element.innerHTML //=> '<b>Joe</b> is 32 years old!'
+dummy_element.innerHTML //=> '<div class="age32"><b>Joe</b> is 32 years old!</div>'
 
 model.set('name', 'Bob')
 
-dummy_element.innerHTML //=> '<b>Bob</b> is 32 years old!'
+dummy_element.innerHTML //=> '<div class="age32"><b>Bob</b> is 32 years old!</div>'
 ````
 
 ## `m-` attributes
