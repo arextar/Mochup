@@ -63,6 +63,9 @@ model.get('foo') //=> 'bar'
 ### Model#dispose
 `Model#dispose` removes all data and events associated with the model.
 
+### Model#render
+See the documentation on rendering
+
 
 ## Events
 
